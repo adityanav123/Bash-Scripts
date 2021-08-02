@@ -1,7 +1,5 @@
 set nu " set line number
 
-" set font.
-"set gfn=Monaco:h25
 
 " set line pointer
 set cursorline
@@ -50,8 +48,13 @@ set wildmenu
 " certain files we donot want to edit with vim.
 set wildignore=*.docx,*jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+
 set clipboard^=unnamed,unnamedplus
 
+" set FONT.
+if has('gui_running')
+    set guifont=Input\ Mono\ Light\ 14
+endif
 
 " THEMES in VIM
 colorscheme industry
