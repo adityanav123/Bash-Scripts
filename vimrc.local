@@ -9,6 +9,7 @@ set cursorcolumn
 set shiftwidth=4
 set tabstop=4
 set expandtab " use space char instead of tabs.
+set softtabstop=4
 
 " enable syntax highlighting.
 syntax on
