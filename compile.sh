@@ -42,3 +42,8 @@ then
     fi
 fi
 
+if [[ "${1: -3}" == ".py" ]]
+then
+    python $filename
+fi
+

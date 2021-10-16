@@ -92,11 +92,15 @@ nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
 "map <C-n> :NERDTreeToggle<cr>
 
 " C++17 Configuration # F5 for compilation & RUN
-autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>
+"autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>
+
+autocmd filetype cpp nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
 " C configuration # F5 for compilation & RUN.
-autocmd filetype c nnoremap <f5> :!clear && gcc -W -Wall -o %:r.out % <cr> :!./%:r.out <cr>
-" show matching braces
+autocmd filetype c nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
+
+"Python Execution
+autocmd filetype python nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
 "Python
 autocmd filetype python map <buffer> <F9> :!clear && w<cr>:exec '!python3' shellescape(@%, 1)<cr>
