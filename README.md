@@ -9,7 +9,7 @@ F5 to compile and execute C/C++ files directly from vim.
 
 - For VimPlug, have to install git cli.
 
-#C/C++/CUDA Compilation Script.
+# C/C++/CUDA Compilation Script.
 Wrote it for less hassel in C++/C/Cuda code compilation from vim.
 
 just execute as - 
