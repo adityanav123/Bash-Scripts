@@ -102,6 +102,4 @@ autocmd filetype c nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 "Python Execution
 autocmd filetype python nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
-"Python
-autocmd filetype python map <buffer> <F9> :!clear && w<cr>:exec '!python3' shellescape(@%, 1)<cr>
 set showmatch
