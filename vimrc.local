@@ -1,9 +1,8 @@
 set nu " set line number
 
-
 " set line pointer
-set cursorline
-set cursorcolumn
+""set cursorline
+""set cursorcolumn
 
 " tab spaces config.
 set shiftwidth=4
@@ -17,6 +16,7 @@ syntax on
 "Autoidentation
 set autoindent
 set cindent
+set smartindent
 
 " don't start beeping on errors.
 set visualbell
@@ -27,6 +27,13 @@ set nowrap
 
 " will search the text as you type.
 set incsearch
+set smartcase
+
+"no swap file
+set noswapfile
+
+set colorcolumn=80
+highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " show the last command typed below.
 set showcmd
@@ -58,17 +65,31 @@ if has('gui_running')
 endif
 
 " THEMES in VIM
-colorscheme industry
+""colorscheme industry
 
 " PLUGIN MANAGER ---- VIM-PLUG 
 call plug#begin('~/.vim/plugged')
-    
-    Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
-
+    Plug 'lervag/vimtex'
+    Plug 'lyuts/vim-rtags'
+    Plug 'Valloric/YouCompleteMe'
+    Plug 'mbbill/undotree'
 call plug#end()
 
+" Window Commands
+let mapleader = " "
+nnoremap <leader>h :wincmd h<CR>
+nnoremap <leader>j :wincmd j<CR>
+nnoremap <leader>k :wincmd k<CR>
+nnoremap <leader>l :wincmd l<CR>
+nnoremap <leader>pv :wincmd v<CR>
+nnoremap <leader>u :UndotreeShow<CR>
+
+" You Complete Me
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+
 " NERDTree Config.
-map <C-n> :NERDTreeToggle<cr>
+"map <C-n> :NERDTreeToggle<cr>
 
 " C++17 Configuration # F5 for compilation & RUN
 autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>

@@ -8,6 +8,7 @@ F5 to compile and execute C/C++ files directly from vim.
 3. :source % --> from vim.
 
 - For VimPlug, have to install git cli.
+- YouCompleteMe AutoCompleter used. [https://github.com/ycm-core/YouCompleteMe#installation]
 
 # C/C++/CUDA Compilation Script.
 Wrote it for less hassel in C++/C/Cuda code compilation from vim.
