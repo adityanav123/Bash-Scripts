@@ -13,7 +13,11 @@ F5 to compile and execute C/C++ files directly from vim.
 Wrote it for less hassel in C++/C/Cuda code compilation from vim.
 
 just execute as - 
+
 ./compile.sh <your program name>
-or 
+
+  or 
+
 bash compile.sh <your program name>
+
 Eg. bash compile.sh test.cpp
