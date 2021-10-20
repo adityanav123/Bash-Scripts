@@ -24,3 +24,7 @@ just execute as -
 bash compile.sh <your program name>
 
 Eg. bash compile.sh test.cpp
+
+# Alacritty Terminal Configuration
+Copy the .yml file contents to ~/.config/alacritty/alacritty.yml
+Reload Alacritty.
