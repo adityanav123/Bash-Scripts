@@ -1,4 +1,4 @@
-set nu " set line number
+set nu rnu " set line number
 
 " set line pointer
 ""set cursorline
@@ -16,7 +16,6 @@ syntax on
 "Autoidentation
 set autoindent
 set cindent
-set smartindent
 
 " don't start beeping on errors.
 set visualbell
@@ -73,8 +72,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'lyuts/vim-rtags'
     Plug 'Valloric/YouCompleteMe'
     Plug 'mbbill/undotree'
+    Plug 'itchyny/lightline.vim'
+
 call plug#end()
 
+set laststatus=2
+set noshowmode
 " Window Commands
 let mapleader = " "
 nnoremap <leader>h :wincmd h<CR>
@@ -87,6 +90,14 @@ nnoremap <leader>u :UndotreeShow<CR>
 " You Complete Me
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gf :YcmCompleter FixIt<CR>
+
+" Close Preview from YouCompleter
+nnoremap <silent> <Leader>pc :pc<CR>
+
+" Open a New Tab
+nnoremap <silent> <Leader>n :tabnew<CR>
+" Save and Quit
+nnoremap <silent> <Leader>q :wq<CR>
 
 " NERDTree Config.
 "map <C-n> :NERDTreeToggle<cr>
@@ -102,4 +113,6 @@ autocmd filetype c nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 "Python Execution
 autocmd filetype python nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
+"Python
+autocmd filetype python map <buffer> <F9> :!clear && w<cr>:exec '!python3' shellescape(@%, 1)<cr>
 set showmatch
