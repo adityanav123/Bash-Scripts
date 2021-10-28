@@ -31,7 +31,7 @@ set smartcase
 "no swap file
 set noswapfile
 
-set colorcolumn=80
+set colorcolumn=90
 highlight ColorColumn ctermbg=0 guibg=lightgrey
 
 " show the last command typed below.
@@ -69,15 +69,18 @@ endif
 " PLUGIN MANAGER ---- VIM-PLUG 
 call plug#begin('~/.vim/plugged')
     Plug 'lervag/vimtex'
-    Plug 'lyuts/vim-rtags'
-    Plug 'Valloric/YouCompleteMe'
+    "Plug 'lyuts/vim-rtags'
     Plug 'mbbill/undotree'
     Plug 'itchyny/lightline.vim'
-
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
+" COLORSCHEME : gruv box.
+colorscheme gruvbox
+set background=dark
+
 set laststatus=2
-set noshowmode
+"set noshowmode
 " Window Commands
 let mapleader = " "
 nnoremap <leader>h :wincmd h<CR>

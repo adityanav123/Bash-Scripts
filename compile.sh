@@ -11,6 +11,11 @@ fname="${filename%.*}"
 
 if [[ "${1: -4}" == ".cpp" ]]
 then
+    if [[ "$choice" == "1" ]]
+    then
+        g++ -std=c++17 $filename -Wall -o $fname
+    fi
+
     if [[ "$choice" == "2" ]]
     then
         g++ -std=c++17 $filename -o $fname
@@ -28,6 +33,11 @@ fi
 
 if [[ "${1: -3}" == ".cu" ]]
 then
+    if [[ "$choice" == "1" ]]
+    then
+        nvcc $filename -o $fname
+    fi
+
     if [[ "$choice" == "2" ]]
     then
         nvcc $filename -o $fname
@@ -45,6 +55,11 @@ fi
 
 if [[ "${1: -2}" == ".c" ]]
 then
+    if [[ "$choice" == "1" ]]
+    then
+        gcc $filename -o $fname
+    fi
+
     if [[ "$choice" == "2" ]]
     then
         gcc $filename -o $fname
