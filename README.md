@@ -15,7 +15,7 @@ Pre-Requisites : Copy the file compile.sh to ~/ folder.
 # C/C++/CUDA/Python Compilation Script.
 Wrote it for less hassel in C++/C/Cuda/Python code compilation from vim.
 
-just execute as - 
+[1] Manual Working : just execute as - 
 
 ./compile.sh <your program name>
 
@@ -23,6 +23,8 @@ just execute as -
 
 bash compile.sh <your program name>
 
+[2] Vim Working : add compile.sh to the '~/' or Home Directory and press F5 inside any C/C++/CUDA program opened in vim. 
+  
 Eg. bash compile.sh test.cpp
 
 # Alacritty Terminal Configuration
