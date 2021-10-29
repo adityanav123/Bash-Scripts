@@ -108,7 +108,11 @@ nnoremap <silent> <Leader>q :wq<CR>
 " C++17 Configuration # F5 for compilation & RUN
 "autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>
 
+autocmd BufNewFile,BufRead *.cu set ft=cu | set syntax=cpp
+
 autocmd filetype cpp nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
+
+autocmd filetype cu nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
 " C configuration # F5 for compilation & RUN.
 autocmd filetype c nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
@@ -116,6 +120,4 @@ autocmd filetype c nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 "Python Execution
 autocmd filetype python nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
-"Python
-autocmd filetype python map <buffer> <F9> :!clear && w<cr>:exec '!python3' shellescape(@%, 1)<cr>
 set showmatch
