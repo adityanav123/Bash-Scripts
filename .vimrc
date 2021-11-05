@@ -14,7 +14,7 @@ set softtabstop=4
 syntax on
 
 "Autoidentation
-set autoindent
+"set autoindent
 set cindent
 
 " don't start beeping on errors.
@@ -63,24 +63,45 @@ if has('gui_running')
     set guifont=Input\ Mono\ Light\ 14
 endif
 
-" THEMES in VIM
-""colorscheme industry
-
 " PLUGIN MANAGER ---- VIM-PLUG 
 call plug#begin('~/.vim/plugged')
     Plug 'lervag/vimtex'
-    "Plug 'lyuts/vim-rtags'
+    Plug 'lyuts/vim-rtags'
     Plug 'mbbill/undotree'
     Plug 'itchyny/lightline.vim'
     Plug 'morhetz/gruvbox'
+    Plug 'preservim/nerdtree'
+    Plug 'ryanoasis/vim-devicons'
+    Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+    Plug 'tpope/vim-fugitive'
 call plug#end()
+
+" Git fugitive config
+nmap <leader>gs :G<CR>
+nmap <leader>gp :Git push<CR>
+nmap <leader>gc :Git commit<CR>
+
+" NERD Tree Config.
+nnoremap <C-f> :NERDTreeToggle<CR>
 
 " COLORSCHEME : gruv box.
 colorscheme gruvbox
 set background=dark
 
+" LightLine Config.
 set laststatus=2
-"set noshowmode
+set noshowmode
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 " Window Commands
 let mapleader = " "
 nnoremap <leader>h :wincmd h<CR>
@@ -89,6 +110,7 @@ nnoremap <leader>k :wincmd k<CR>
 nnoremap <leader>l :wincmd l<CR>
 nnoremap <leader>pv :wincmd v<CR>
 nnoremap <leader>u :UndotreeShow<CR>
+
 
 " You Complete Me
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
@@ -101,9 +123,8 @@ nnoremap <silent> <Leader>pc :pc<CR>
 nnoremap <silent> <Leader>n :tabnew<CR>
 " Save and Quit
 nnoremap <silent> <Leader>q :wq<CR>
-
-" NERDTree Config.
-"map <C-n> :NERDTreeToggle<cr>
+" Force Quit
+nnoremap <silent> <leader>fq :q!<CR>
 
 " C++17 Configuration # F5 for compilation & RUN
 "autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>
