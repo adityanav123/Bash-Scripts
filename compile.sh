@@ -11,11 +11,13 @@ then
     exit
 fi
 
+
 echo "[1]Compile Only     [2]Compile & Run      [3]Debug Mode"
 read choice
 #echo "$choice"
 
-
+echo =====[OUTPUT]=====
+echo 
 if [[ "${1: -4}" == ".cpp" ]]
 then
     if [[ "$choice" == "1" ]]
@@ -25,7 +27,10 @@ then
 
     if [[ "$choice" == "2" ]]
     then
-        g++ -std=c++17 $filename -o $fname
+        if [ ! -f $fname ]
+        then
+            g++ -std=c++17 $filename -o $fname
+        fi
         ./$fname
         rm -rf $fname
     fi
@@ -42,21 +47,24 @@ if [[ "${1: -3}" == ".cu" ]]
 then
     if [[ "$choice" == "1" ]]
     then
-        nvcc $filename -o $fname
+        nvcc -arch=sm_75 $filename -o $fname
     fi
 
     if [[ "$choice" == "2" ]]
     then
-        nvcc $filename -o $fname
+        if [ ! -f $fname ]
+        then
+            nvcc -arch=sm_75 $filename -o $fname
+        fi
         ./$fname
         rm -rf $fname
     fi
 
     if [[ "$choice" == "3" ]]
     then
-        nvcc -g -G $filename -o $fname
+        nvcc -arch=sm_75 -g -G $filename -o $fname
         cuda-gdb ./$fname
-        rm -rf ./$fname
+        rm -rf $fname
     fi
 fi
 
@@ -69,7 +77,10 @@ then
 
     if [[ "$choice" == "2" ]]
     then
-        gcc $filename -o $fname
+        if [ ! -f $fname ]
+        then
+            gcc $filename -o $fname
+        fi
         ./$fname
         rm -rf $fname
     fi
