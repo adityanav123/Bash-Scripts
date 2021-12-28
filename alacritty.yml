@@ -18,8 +18,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   #dimensions:
-  #  columns: 0
-  #  lines: 0
+  columns: 80
+  lines: 80
 
   # Window position (changes require restart)
   #
@@ -38,7 +38,7 @@ window:
     y: 8
 
   # Spread additional padding evenly around the terminal content.
-  dynamic_padding: true
+  #dynamic_padding: true
 
   # Window decorations
   #
@@ -182,7 +182,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 13.3
+  size: 8.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -477,8 +477,8 @@ schemes:
 # *solarized-dark
 # *tomorrow-night
 #colors: *doom-one
-colors: *dracula
-
+#colors: *dracula
+colors: *gruvbox-dark
 # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
@@ -509,8 +509,8 @@ colors: *dracula
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 1.0
-#background_opacity: 0.80
+#background_opacity: 1.0
+background_opacity: 0.80
 
 selection:
   #semantic_escape_chars: ",│`|:\"' ()[]{}<>\t"

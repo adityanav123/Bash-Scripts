@@ -74,6 +74,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'ryanoasis/vim-devicons'
     Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
     Plug 'tpope/vim-fugitive'
+    Plug 'sainnhe/gruvbox-material'
 call plug#end()
 
 " Git fugitive config
@@ -85,7 +86,7 @@ nmap <leader>gc :Git commit<CR>
 nnoremap <C-f> :NERDTreeToggle<CR>
 
 " COLORSCHEME : gruv box.
-colorscheme gruvbox
+colorscheme gruvbox-material
 set background=dark
 
 " LightLine Config.
@@ -98,10 +99,21 @@ let g:lightline = {
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
+      \   'gitbranch': 'FugitiveHead',
+      \   'filename' : 'LightlineFilename',
       \ },
       \ }
 
+function! LightlineFilename()
+  return &filetype ==# 'vimfiler' ? vimfiler#get_status_string() :
+        \ &filetype ==# 'unite' ? unite#get_status_string() :
+        \ &filetype ==# 'vimshell' ? vimshell#get_status_string() :
+        \ expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+endfunction
+
+let g:unite_force_overwrite_statusline = 0
+let g:vimfiler_force_overwrite_statusline = 0
+let g:vimshell_force_overwrite_statusline = 0
 " Window Commands
 let mapleader = " "
 nnoremap <leader>h :wincmd h<CR>
@@ -129,7 +141,7 @@ nnoremap <silent> <leader>fq :q!<CR>
 " C++17 Configuration # F5 for compilation & RUN
 "autocmd filetype cpp nnoremap <f5> :!clear && g++ -W -Wall -o %:r.out % -std=c++17<cr> :!./%:r.out <cr>
 
-
+autocmd filetype sh nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 autocmd filetype cpp nnoremap <f5> :!clear && $HOME/compile.sh %<cr>
 
 autocmd filetype cuda nnoremap <f5> :!clear && $HOME/compile.sh %<cr>

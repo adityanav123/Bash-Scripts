@@ -11,6 +11,12 @@ then
     exit
 fi
 
+if [[ "${1: -3}" == ".sh" ]]
+then
+    bash $filename
+    exit
+fi
+
 
 echo "[1]Compile Only     [2]Compile & Run      [3]Debug Mode"
 read choice
