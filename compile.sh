@@ -53,14 +53,14 @@ if [[ "${1: -3}" == ".cu" ]]
 then
     if [[ "$choice" == "1" ]]
     then
-        nvcc -arch=sm_75 $filename -o $fname
+        nvcc -arch=sm_75 -rdc=true $filename -o $fname
     fi
 
     if [[ "$choice" == "2" ]]
     then
         if [ ! -f $fname ]
         then
-            nvcc -arch=sm_75 $filename -o $fname
+            nvcc -arch=sm_75 -rdc=true $filename -o $fname
         fi
         ./$fname
         rm -rf $fname
@@ -68,7 +68,7 @@ then
 
     if [[ "$choice" == "3" ]]
     then
-        nvcc -arch=sm_75 -g -G $filename -o $fname
+        nvcc -arch=sm_75 -g -G -rdc=true $filename -o $fname
         cuda-gdb ./$fname
         rm -rf $fname
     fi

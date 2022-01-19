@@ -182,7 +182,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 8.5
+  size: 12.5
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -473,9 +473,9 @@ schemes:
 # *dracula
 # *gruvbox-dark
 # *nord
-# *solarized-light
-# *solarized-dark
-# *tomorrow-night
+#colors: *solarized-light
+#colors: *solarized-dark
+#colors: *tomorrow-night
 #colors: *doom-one
 #colors: *dracula
 colors: *gruvbox-dark
