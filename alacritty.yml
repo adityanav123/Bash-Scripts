@@ -478,8 +478,9 @@ schemes:
 #colors: *tomorrow-night
 #colors: *doom-one
 #colors: *dracula
-colors: *gruvbox-dark
-# Visual Bell
+#colors: *gruvbox-dark
+colors: *nord
+        # Visual Bell
 #
 # Any time the BEL code is received, Alacritty "rings" the visual bell. Once
 # rung, the terminal background will be set to white and transition back to the
