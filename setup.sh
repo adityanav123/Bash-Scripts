@@ -8,10 +8,15 @@ cd ~/Downloads
 git clone https://github.com/adityanav123/Bash-Scripts.git
 cd ./Bash-Scripts
 
-sudo pacman -S vim
+echo "Vim Installed? [1/0] : "
+read vim_c
+if [[ "$vim_c" == "0" ]]
+then
+    sudo pacman -S vim
+fi
 cp ./.vimrc ~/
 
-echo "Terminal Alacritty Installed? [1/0] : "
+echo "Alacritty Installed? [1/0] : "
 read choice
 
 if [[ "$choice" == "1" ]]
