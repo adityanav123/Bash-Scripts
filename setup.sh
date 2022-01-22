@@ -34,3 +34,4 @@ cp ./compile.sh ~/
 
 echo "Alacritty, Vim, Vim-Compilation Setup complete."
 
+echo "For installing vim-plug, open .vimrc using vim and do :PlugInstall"
