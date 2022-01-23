@@ -4,10 +4,7 @@ echo "This setup is strictly for Arch-Based Distros."
 echo
 echo "This setup requires package 'git' to be installed."
 cd ~/Downloads
-
-git clone https://github.com/adityanav123/Bash-Scripts.git
-cd ./Bash-Scripts
-
+echo "========================================================="
 echo "Vim Installed? [1/0] : "
 read vim_c
 if [[ "$vim_c" == "0" ]]
@@ -15,6 +12,7 @@ then
     sudo pacman -S vim
 fi
 cp ./.vimrc ~/
+echo "========================================================"
 
 echo "Alacritty Installed? [1/0] : "
 read choice
@@ -33,7 +31,7 @@ fi
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-
+echo "======================================================="
 cp ./compile.sh ~/
 
 

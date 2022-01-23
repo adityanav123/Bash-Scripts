@@ -1,0 +1,55 @@
+URxvt.scrollBar: false
+URxvt*visualBell: true
+URxvt.font: xft:JetBrains Mono:fontsize=12
+! background
+URxvt*background: Black
+
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+URxvt.print-pipe: "cat > /dev/null"
+
+URxvt.perl-ext-common: default,matcher,tabbed,selection-to-clipboard,fullscreen
+
+!full screen
+URxvt.keysym.F11: perl:fullscreen:switch
+
+! can change font dynamically
+! CTRL + increase
+! CTRL - decrease
+! CTRL = reset size
+! CTRL ? see current size
+
+!Cut and paste
+URxvt.clipboard.autocopy: true
+URxvt.keysym.M-c: perl:clipboard:copy
+URxvt.keysym.M-V: perl:clipboard:paste
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+
+!terminal tabs
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+! Dracula Xresources palette
+*.foreground: #F8F8F2
+*.color0:     #000000
+*.color8:     #4D4D4D
+*.color1:     #FF5555
+*.color9:     #FF6E67
+*.color2:     #50FA7B
+*.color10:    #5AF78E
+*.color3:     #F1FA8C
+*.color11:    #F4F99D
+*.color4:     #BD93F9
+*.color12:    #CAA9FA
+*.color5:     #FF79C6
+*.color13:    #FF92D0
+*.color6:     #8BE9FD
+*.color14:    #9AEDFE
+*.color7:     #BFBFBF
+*.color15:    #E6E6E6
+
