@@ -1,9 +1,12 @@
-#!/bin/zsh
+#!/bin/bash
 # echo "hello world"
 touch temp.txt
 
 installationProcedure() {
     dialog --title "Installation Dot Files" --textbox ./programs_to_install.txt 20 60
+    clear
+    dialog --pause "pause" 20 40 30
+    clear
     clear
 }
 
@@ -26,6 +29,7 @@ installProgram() {
             sudo pacman -S $program
         fi
     fi
+    rm -rf temporary.txt
     clear
 }
 
@@ -36,6 +40,7 @@ installProgram alacritty
 installProgram rxvt-unicode
 
 # copying files
+dialog --pause "copying vimrc and vim-compilation files.." 3 40 2 
 cp ./.vimrc ~/.
 cp ./compile.sh ~/.
 
@@ -48,3 +53,5 @@ clear
 
 dialog --msgbox  "Installation of all the components successful!" 10 25
 
+
+rm -rf temp.txt
