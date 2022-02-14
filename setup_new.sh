@@ -8,8 +8,10 @@ curl -Is google.in | head -n 1 > internet_connectivity.txt
 if [[ -s ./internet_connectivity.txt ]]
 then
     echo "-->connected to net."
+    echo
 else
     echo "-->not connected, connect to internet and try again."
+    echo
     exit
 fi
 rm -rf internet_connectivity.txt
@@ -42,7 +44,7 @@ installationProcedure() {
 
 installProgram() {
     program=$1
-    dialog --infobox "installing $program" 3 40 ; sleep 1
+    dialog --infobox "checking if $program present" 3 40 ; sleep 1
     clear
     #testing the presence of file.
     touch temporary.txt
@@ -88,6 +90,8 @@ if [[ -s rxvt-unicode ]]
 then
     dialog --infobox "copying .Xresources file for rxvt-unicode terminal emulator" 3 50 ; sleep 1
     cp .Xresources ~/
+    # sourcing the current Xresources file
+    xrdb ~/.Xresources
 fi
 
 if [[ -s alacritty ]]
@@ -98,10 +102,11 @@ then
 fi
 
 # copying files
-if [[ "$vim_flag" == "0" ]]
+if [[ -s vim && "$vim_flag" == "0" ]]
 then
     dialog --infobox "copying vimrc and vim-compilation files.." 3 40 ; sleep 1 
     cp ./.vimrc ~/.
+    # copying compilation files
     cp ./compile.sh ~/.
 
 
