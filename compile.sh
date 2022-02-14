@@ -7,7 +7,7 @@ fname="${filename%.*}"
 
 if [[ "${1: -3}" == ".py" ]]
 then
-    dialog --infobox "$filename Execute.." 3 70 ; sleep 2
+    dialog --infobox "$filename Execute.." 3 70 ; sleep 1
     clear
     python $filename
     exit
@@ -15,26 +15,28 @@ fi
 
 if [[ "${1: -3}" == ".sh" ]]
 then
-    dialog --infobox "$filename Shell Script Execute.." 3 70 ; sleep 2
+    dialog --infobox "$filename Shell Script Execute.." 3 70 ; sleep 1
     clear
     bash $filename
     exit
 fi
 
-touch temp.txt #have to delete later.
+touch temp.txt # deleted at the end
 dialog --menu 'Choose:' 12 45 25 1 'Compile Only' 2 'Compile & Run' 3 'Debug' 2>temp.txt
 
 choice=$(cat temp.txt)
 clear
+
 #echo "[1]Compile Only     [2]Compile & Run      [3]Debug Mode"
 #read choice
 #echo "$choice"
+
 echo 
 if [[ "${1: -4}" == ".cpp" ]]
 then
     if [[ "$choice" == "1" ]]
     then
-        dialog --infobox "Compiling $filename" 3 70 ; sleep 2
+        dialog --infobox "Compiling $filename" 3 70 ; sleep 1
         clear
         g++ -std=c++17 $filename -Wall -o $fname
     fi
@@ -43,11 +45,11 @@ then
     then
         if [ ! -f $fname ]
         then
-            dialog --infobox "$fname.out not found, compiling." 3 70 ; sleep 2
+            dialog --infobox "$fname.out not found, compiling." 3 70 ; sleep 1
             g++ -std=c++17 $filename -o $fname
         fi
         clear
-        dialog --infobox "Running $fname.out.." 3 70 ; sleep 2
+        dialog --infobox "Running $fname.out.." 3 70 ; sleep 1
         clear 
         ./$fname
         rm -rf $fname
@@ -67,7 +69,7 @@ if [[ "${1: -3}" == ".cu" ]]
 then
     if [[ "$choice" == "1" ]]
     then
-        dialog --infobox "Compiling $filename.." 3 70 ; sleep 2
+        dialog --infobox "Compiling $filename.." 3 70 ; sleep 1
         clear
         nvcc -arch=sm_75 -rdc=true $filename -o $fname
     fi
@@ -76,11 +78,11 @@ then
     then
         if [ ! -f $fname ]
         then
-            dialog --infobox "$fname.out not found, Compiling $filename.." 3 70 ; sleep 2
+            dialog --infobox "$fname.out not found, Compiling $filename.." 3 70 ; sleep 1
             nvcc -arch=sm_75 -rdc=true $filename -o $fname
         fi
         clear 
-        dialog --infobox "Running $fname.out.." 3 70 ; sleep 2
+        dialog --infobox "Running $fname.out.." 3 70 ; sleep 1
         clear
         ./$fname
         rm -rf $fname
@@ -100,7 +102,7 @@ if [[ "${1: -2}" == ".c" ]]
 then
     if [[ "$choice" == "1" ]]
     then
-        dialog --infobox "Compiling $filename.." 3 70 ; sleep 2
+        dialog --infobox "Compiling $filename.." 3 70 ; sleep 1
         clear
         gcc $filename -o $fname
     fi
@@ -109,11 +111,11 @@ then
     then
         if [ ! -f $fname ]
         then
-            dialog --infobox "$fname.out not found, Compiling $filename.." 3 70 ; sleep 2
+            dialog --infobox "$fname.out not found, Compiling $filename.." 3 70 ; sleep 1
             clear
             gcc $filename -o $fname
         fi
-        dialog --infobox "Running $fname.out.." 3 70 ; sleep 2
+        dialog --infobox "Running $fname.out.." 3 70 ; sleep 1
         clear
         ./$fname
         rm -rf $fname
@@ -121,7 +123,7 @@ then
 
     if [[ "$choice" == "3" ]]
     then
-        dialog --infobox "GDB Debugger Start.." 3 70 ; sleep 3
+        dialog --infobox "GDB Debugger Start.." 3 70 ; sleep 2
         clear
         gcc -g -w $filename -o $fname
         gdb ./$fname
@@ -129,4 +131,7 @@ then
     fi
 fi
 
+# deleting the temp file after completion
 rm -rf temp.txt
+
+
