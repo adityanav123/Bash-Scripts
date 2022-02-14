@@ -5,9 +5,6 @@ touch temp.txt
 installationProcedure() {
     dialog --title "Installation Dot Files" --textbox ./programs_to_install.txt 20 60
     clear
-    dialog --pause "pause" 20 40 30
-    clear
-    clear
 }
 
 installProgram() {
@@ -40,7 +37,7 @@ installProgram alacritty
 installProgram rxvt-unicode
 
 # copying files
-dialog --pause "copying vimrc and vim-compilation files.." 3 40 2 
+dialog --infobox "copying vimrc and vim-compilation files.." 3 40 ; sleep 1 
 cp ./.vimrc ~/.
 cp ./compile.sh ~/.
 
@@ -53,5 +50,5 @@ clear
 
 dialog --msgbox  "Installation of all the components successful!" 10 25
 
-
+clear
 rm -rf temp.txt
