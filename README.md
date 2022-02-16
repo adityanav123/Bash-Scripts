@@ -1,7 +1,7 @@
 # Only for Arch based distros.
 
 
-# [Update]: just run setup_new.sh file, it will automatically install vim, alacritty, urxvt terminal emulator
+## [Update]: just run setup_new.sh file, it will automatically install vim, alacritty, urxvt terminal emulator
 
 # vim
 vim configuration file I wrote for compiling and executing C/C++ codes along with some visual customisations.
